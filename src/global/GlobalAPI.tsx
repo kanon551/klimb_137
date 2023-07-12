@@ -12,6 +12,14 @@ export const authAxios = axios.create({
   },
 });
 
+export const treeURL = "localhost:8080/api/v1";
+export const treeAxios = axios.create({
+  baseURL: `http://${treeURL}`,
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
+
 
 export const removeBackslashes = (arr: GotDataObject[]) => {
   return arr.map((obj:GotDataObject) => {
@@ -83,5 +91,15 @@ export const getCharacterNameByIDAPI = async(id:number)=> {
   } catch(error){
     console.log("Error fetching with characterNameBYID:", error);
     throw new Error("Failed fetching Character name by iD");
+  }
+}
+
+export const getTree = async(houseName:string)=> {
+  try{
+    const res = await treeAxios.get(`/characters/${houseName}`);
+    return res.data;
+  }catch(error){
+    console.log("Error fetching with tree:", error);
+    throw new Error("Failed fetching tree");
   }
 }

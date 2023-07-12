@@ -12,7 +12,7 @@ import { useSelector } from 'react-redux';
 
 
 const initialNodes = [
-    { id: '1', position: { x: 50, y: 100 }, data: { label: 'Character->' } ,type: 'input'},
+    { id: '1', position: { x: 50, y: 100 }, data: { label: 'Character' } ,type: 'input'},
     { id: '2', position: { x: 50, y: 200 }, data: { label: 'Relations' }, type:'output' },
   ];
   const initialEdges = [{ id: 'e1-2', source: '1', target: '2' }];
@@ -116,7 +116,7 @@ const FamilyTree = () => {
         onConnect={onConnect}
         fitView
       >
-        <h2>{treeObect.length === 0 ? "Select a Character" : treeObect[0].charactername}</h2>
+        <h2>{treeObect.length === 0 ? "Select a Character --->" : treeObect[0].charactername}</h2>
         <Background gap={12} size={1} color="blueViolet"/>
       </ReactFlow>
     </div>
